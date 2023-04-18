@@ -60,6 +60,11 @@ Describe  'installed dependencies' {
         $LASTEXITCODE | Should -be 0
     }
 
+    It 'has kubelogin installed' {
+        kubelogin --version | Select-Object -First  1 -Skip 1 | Should -match 'v0.0.25'
+        $LASTEXITCODE | Should -be 0
+    }
+
     It 'has helm installed' {
         helm version | Should -Match '3.7.1'
         $LASTEXITCODE | Should -be 0

@@ -11,8 +11,9 @@ ARG Eks_Cli_Version=0.25.0
 ARG Google_Cloud_Cli_Version=412.0.0-0
 ARG Google_Cloud_Gke_Cloud_Auth_Plugin_Version=412.0.0-0
 ARG Helm_Version=v3.7.1
-ARG Java_Jdk_Version=11.0.17+8-1ubuntu2~22.04
+ARG Java_Jdk_Version=11.0.18+10-0ubuntu1~22.04
 ARG Kubectl_Version=1.18.8-00
+ARG Kubelogin_Version=v0.0.25
 ARG Octopus_Cli_Version=9.1.7
 ARG Octopus_Client_Version=11.6.3644
 ARG Powershell_Version=7.2.7-1.deb
@@ -100,6 +101,13 @@ RUN wget --quiet -O - https://deb.nodesource.com/setup_14.x | bash && \
 RUN wget --quiet -O - https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -  && \
     echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | tee -a /etc/apt/sources.list.d/kubernetes.list && \
     apt-get update && apt-get install -y kubectl=${Kubectl_Version}
+
+# Get Kubelogin
+RUN wget --quiet https://github.com/Azure/kubelogin/releases/download/${Kubelogin_Version}/kubelogin-linux-amd64.zip && \
+    unzip kubelogin-linux-amd64.zip -d kubelogin-linux-amd64 && \
+    mv kubelogin-linux-amd64/bin/linux_amd64/kubelogin /usr/local/bin && \
+    rm -rf kubelogin-linux-amd64 && \
+    rm kubelogin-linux-amd64.zip
 
 # Get Terraform
 # https://computingforgeeks.com/how-to-install-terraform-on-ubuntu-centos-7/
