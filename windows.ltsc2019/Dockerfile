@@ -91,7 +91,7 @@ RUN Invoke-WebRequest "https://dl.google.com/dl/cloudsdk/channels/rapid/download
 # # Install ScriptCS
 RUN choco install scriptcs -y --version $Env:ScriptCs_Version --no-progress
 
-# Install the AWS CLI
+# Install Octopus CLI EAP
 RUN choco install octopus-cli -y --version $Env:Octopus_Cli_Eap_Version --no-progress
 
 # # Install octo
