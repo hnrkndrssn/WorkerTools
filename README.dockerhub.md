@@ -1,3 +1,5 @@
+[//]: # (!!!!IF YOU MAKE CHANGES TO THIS FILE, REMEMBER TO UPDATE DOCKER HUB!!!!)
+
 # About This Image
 
 These images include common tools used for Octopus steps and are the recommended images to use when setting up [execution containers for workers](https://octopus.com/docs/deployment-process/execution-containers-for-workers).
@@ -10,8 +12,8 @@ Pick an image that is suitable for your needs based on OS + distribution.
 
 | Operating System         | Installed Tools and Versions                                                                                                                         |
 |--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Ubuntu 22.04             | [Installed tools](./ubuntu.22.04/README.md) ([Dockerfile](https://github.com/OctopusDeploy/WorkerTools/blob/master/ubuntu.22.04/Dockerfile))         |
-| Windows Server Core 2019 | [Installed tools](./windows.ltsc2019/README.md) ([Dockerfile](https://github.com/OctopusDeploy/WorkerTools/blob/master/windows.ltsc2019/Dockerfile)) |
+| Ubuntu 22.04             | [Installed tools](https://github.com/OctopusDeploy/WorkerTools/blob/master/ubuntu.22.04/README.md) ([Dockerfile](https://github.com/OctopusDeploy/WorkerTools/blob/master/ubuntu.22.04/Dockerfile))         |
+| Windows Server Core 2019 | [Installed tools](https://github.com/OctopusDeploy/WorkerTools/blob/master/windows.ltsc2019/README.md) ([Dockerfile](https://github.com/OctopusDeploy/WorkerTools/blob/master/windows.ltsc2019/Dockerfile)) |
 
 The images we publish have multiple release tracks, and are [semantically versioned](https://semver.org/). To ensure stability within your deployment processes, we recommend using the full `major.minor.patch` tag when using the `octopusdeploy/worker-tools` image - for example, use `2.0.2-ubuntu.22.04`, not `ubuntu.22.04`, unless you have a particular use-case that is more tolerant of changes.
 
