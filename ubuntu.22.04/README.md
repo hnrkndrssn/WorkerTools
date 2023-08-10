@@ -38,7 +38,7 @@
 - Java Jdk 11.0.17+8-1ubuntu2~22.04
 - Kubectl 1.18.8-00
 - Kubelogin v0.0.25
-- Octopus CLI EAP 1.5.0
+- Octopus CLI EAP 1.5.1
 
 - Octopus CLI 9.1.7
 - Octopus Client 11.6.3644
