@@ -18,7 +18,7 @@ Describe  'installed dependencies' {
     }
 
     It 'has java installed' {
-        java --version | Should -beLike "*11.0.19*"
+        java --version | Should -beLike "*11.0.20*"
         $LASTEXITCODE | Should -be 0
     }
 
@@ -66,7 +66,7 @@ Describe  'installed dependencies' {
     }
 
     It 'has python3 installed' {
-        python3 --version | Should -match '3.10.6'
+        python3 --version | Should -match '3.10.12'
         $LASTEXITCODE | Should -be 0
     }
 
@@ -140,5 +140,11 @@ Describe  'installed dependencies' {
         $output = & pwsh --version
         $LASTEXITCODE | Should -be 0
         $output | Should -match '^PowerShell 7\.2\.7*'
+    }
+
+    It 'should have installed argo cli' {
+        $output = (& argocd version --client) -join "`n"
+        $LASTEXITCODE | Should -be 0
+        $output | Should -Match '2.8.0'
     }
 }

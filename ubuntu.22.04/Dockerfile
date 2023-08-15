@@ -11,7 +11,7 @@ ARG Eks_Cli_Version=0.25.0
 ARG Google_Cloud_Cli_Version=412.0.0-0
 ARG Google_Cloud_Gke_Cloud_Auth_Plugin_Version=412.0.0-0
 ARG Helm_Version=v3.7.1
-ARG Java_Jdk_Version=11.0.19+7~us1-0ubuntu1~22.04.1
+ARG Java_Jdk_Version=11.0.20+8-1ubuntu1~22.04
 ARG Kubectl_Version=1.18.8-00
 ARG Kubelogin_Version=v0.0.25
 ARG Octopus_Cli_Version=9.1.7
@@ -20,6 +20,7 @@ ARG Powershell_Version=7.2.7-1.deb
 ARG Terraform_Version=1.1.3
 ARG Umoci_Version=0.4.6
 ARG Python2_Version=2.7.18-3
+ARG Argocd_Version=2.8.0
 
 # get `wget` & software-properties-common
 # https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-7#ubuntu-1804
@@ -182,3 +183,7 @@ RUN add-apt-repository -y ppa:rmescandon/yq && \
 RUN sh -c "echo 'deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_22.04/ /' > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list" && \
     wget -nv https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable/xUbuntu_22.04/Release.key -O- | apt-key add - && \
     apt-get update && apt-get install -y skopeo
+
+RUN curl -sSL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/download/v${Argocd_Version}/argocd-linux-amd64 && \
+  install -m 555 argocd-linux-amd64 /usr/local/bin/argocd && \
+  rm argocd-linux-amd64
