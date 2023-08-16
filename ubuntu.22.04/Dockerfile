@@ -3,7 +3,7 @@ FROM ubuntu:22.04
 ARG Aws_Cli_Version=2.0.60
 ARG Aws_Iam_Authenticator_Version=0.5.3
 ARG Aws_Powershell_Version=4.1.2
-ARG Azure_Cli_Version=2.44.1-1~bionic
+ARG Azure_Cli_Version=2.51.0-1~jammy
 ARG Azure_Powershell_Version=4.5.0
 ARG Dotnet_Sdk_Version=6.0
 ARG Ecs_Cli_Version=1.20.0
@@ -80,15 +80,12 @@ RUN apt-get install -y openjdk-11-jdk-headless=${Java_Jdk_Version}
 RUN apt-get update && \
     apt-get install -y maven gradle
 
-# Get Libssl 1.1, required for Azure CLI as of Ubuntu 22.04. This can be removed when a proper Azure CLI ubuntu 22.04 version is avaliable
-RUN wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2_amd64.deb && \
-    dpkg -i libssl1.1_1.1.1f-1ubuntu2_amd64.deb && \
-    rm -i libssl1.1_1.1.1f-1ubuntu2_amd64.deb
-
 # Get Azure CLI
-# https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-apt?view=azure-cli-latest
-RUN wget --quiet -O - https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | tee /etc/apt/trusted.gpg.d/microsoft.asc.gpg > /dev/null && \
-    echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ bionic main" | tee /etc/apt/sources.list.d/azure-cli.list && \
+# https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt#option-2-step-by-step-installation-instructions
+RUN mkdir -p /etc/apt/keyrings && \
+    curl -sLS https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | tee /etc/apt/keyrings/microsoft.gpg > /dev/null && \
+    chmod go+r /etc/apt/keyrings/microsoft.gpg && \
+    echo "deb [arch=`dpkg --print-architecture` signed-by=/etc/apt/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/azure-cli/ jammy main" | tee /etc/apt/sources.list.d/azure-cli.list && \
     apt-get update && \
     apt-get install -y azure-cli=${Azure_Cli_Version}
 
