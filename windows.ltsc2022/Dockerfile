@@ -3,24 +3,24 @@
 FROM mcr.microsoft.com/dotnet/framework/runtime:4.8.1-20230808-windowsservercore-ltsc2022
 SHELL ["powershell", "-Command"]
 
-ARG Aws_Cli_Version=2.0.60
-ARG Aws_Iam_Authenticator_Version=0.5.3
-ARG Aws_Powershell_Version=4.1.2
-ARG Azure_Cli_Version=2.51.0
+ARG Aws_Cli_Version=2.13.17
+ARG Aws_Iam_Authenticator_Version=0.6.11
+ARG Aws_Powershell_Version=4.1.412
+ARG Azure_Cli_Version=2.52.0
 ARG Azure_Powershell_Version=4.5.0
-ARG Eks_Cli_Version=0.25.0
-ARG Google_Cloud_Cli_Version=412.0.0
-ARG Helm_Version=3.7.1
+ARG Eks_Cli_Version=0.56.0
+ARG Google_Cloud_Cli_Version=445.0.0
+ARG Helm_Version=3.12.3
 ARG Java_Jdk_Version=14.0.2
-ARG Kubectl_Version=1.18.8
-ARG Kubelogin_Version=0.0.25
+ARG Kubectl_Version=1.28.1
+ARG Kubelogin_Version=0.0.32
 ARG Node_Version=14.17.2
 ARG Octopus_Cli_Version=9.1.7
 ARG Octopus_Client_Version=11.6.3644
-ARG Powershell_Version=7.2.7
-ARG Python_Version=3.8.5
+ARG Powershell_Version=7.3.6
+ARG Python_Version=3.11.5
 ARG ScriptCs_Version=0.17.1
-ARG Terraform_Version=1.1.3
+ARG Terraform_Version=1.5.7
 ARG 7Zip_Version=19.0
 ARG Git_Version=2.41.0
 ARG Argo_Cli_Version=2.8.0
