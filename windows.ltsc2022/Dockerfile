@@ -4,7 +4,7 @@ FROM mcr.microsoft.com/dotnet/framework/runtime:4.8.1-20230808-windowsservercore
 SHELL ["powershell", "-Command"]
 
 ARG Aws_Cli_Version=2.13.17
-ARG Aws_Iam_Authenticator_Version=0.6.11
+ARG Aws_Iam_Authenticator_Version=0.5.9
 ARG Aws_Powershell_Version=4.1.412
 ARG Azure_Cli_Version=2.52.0
 ARG Azure_Powershell_Version=4.5.0
