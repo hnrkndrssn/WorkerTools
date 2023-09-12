@@ -33,7 +33,7 @@ Describe  'installed dependencies' {
     }
     
     It 'has az powershell module installed' {
-        (Get-Module Az -ListAvailable).Version.ToString() | should -be '10.3.32'
+        (Get-Module Az -ListAvailable).Version.ToString() | should -be '10.3.0'
     }
 
     It 'has aws cli installed' {
@@ -56,7 +56,7 @@ Describe  'installed dependencies' {
     }
 
     It 'has kubectl installed' {
-        kubectl version --client | Should -Match '1.28.1'
+        kubectl version --client | Select-String -Pattern "1.28.1" | Should -BeLike "Client Version: v1.28.1"
         $LASTEXITCODE | Should -be 0
     }
 
@@ -86,7 +86,7 @@ Describe  'installed dependencies' {
     }
     
     It 'has gke-gcloud-auth-plugin installed' {
-        gcloud --version | Select-String -Pattern "0.4.0" | Should -BeLike "gke-gcloud-auth-plugin 0.4.0"
+        gcloud --version | Select-String -Pattern "0.5.5" | Should -BeLike "gke-gcloud-auth-plugin 0.5.5"
         $LASTEXITCODE | Should -be 0
     }
 
