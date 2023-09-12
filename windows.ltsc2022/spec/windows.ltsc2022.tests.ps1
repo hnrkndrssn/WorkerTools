@@ -33,7 +33,7 @@ Describe  'installed dependencies' {
     }
     
     It 'has az powershell module installed' {
-        (Get-Module Az -ListAvailable).Version.ToString() | should -be '4.5.0'
+        (Get-Module Az -ListAvailable).Version.ToString() | should -be '10.3.32'
     }
 
     It 'has aws cli installed' {
@@ -61,7 +61,7 @@ Describe  'installed dependencies' {
     }
 
     It 'has kubelogin installed' {
-        kubelogin --version | Select-Object -First  1 -Skip 1 | Should -match 'v0.0.32'
+        kubelogin --version | Select-Object -First  1 -Skip 1 | Should -match 'v0.0.30'
         $LASTEXITCODE | Should -be 0
     }
 
@@ -72,7 +72,7 @@ Describe  'installed dependencies' {
 
     # If the terraform version is not the latest, then `terraform version` returns multiple lines and a non-zero return code
     It 'has terraform installed' {
-        terraform version | Select-Object -First 1 | Should -Match '1.5.7'
+        terraform version | Select-Object -First 1 | Should -Match '1.5.6'
     }
 
     It 'has python installed' {
@@ -96,7 +96,7 @@ Describe  'installed dependencies' {
     }
 
     It 'has eksctl installed' {
-        eksctl version | Should -Match '0.25.0'
+        eksctl version | Should -Match '0.156.0'
         $LASTEXITCODE | Should -be 0
     }
 
