@@ -27,7 +27,7 @@
 - Aws CLI 2.0.60
 - Aws Iam Authenticator 0.5.3
 - Aws Powershell 4.1.2
-- Azure CLI 2.44.1-1~bionic
+- Azure CLI 2.51.0-1~jammy
 - Azure Powershell 4.5.0
 - Dotnet Sdk 3.1.401-1
 - Ecs CLI 1.20.0
@@ -35,7 +35,7 @@
 - Google Cloud CLI 412.0.0-0
 - Google Cloud GKE auth plugin 412.0.0-0
 - Helm v3.7.1
-- Java Jdk 11.0.17+8-1ubuntu2~22.04
+- Java Jdk 11.0.20.1+1-0ubuntu1~22.04
 - Kubectl 1.18.8-00
 - Kubelogin v0.0.25
 - Octopus CLI EAP 1.5.1

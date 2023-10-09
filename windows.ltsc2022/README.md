@@ -9,10 +9,10 @@
 
 ## Tags
 
-- `5.0.0-windows.ltsc2019`
-- `5.0-windows.ltsc2019`
-- `5-windows.ltsc2019`
-- `windows.ltsc2019`
+- `6.0.0-windows.ltsc2022`
+- `6.0-windows.ltsc2022`
+- `6-windows.ltsc2022`
+- `windows.ltsc2022`
 
 ## Digest
 
@@ -20,7 +20,7 @@
 
 ## Base Image
 
-`mcr.microsoft.com/windows/servercore:ltsc2019-amd64`
+`mcr.microsoft.com/windows/servercore:ltsc2022-amd64`
 
 ## Installed Software
 
@@ -37,8 +37,6 @@
 - Kubectl 1.18.8
 - Kubelogin (azure-kubelogin) 0.0.25
 - Node 14.17.2
-- Octopus CLI EAP 1.5.1
-
 - Octopus CLI 9.1.7
 - Octopus Client 11.6.3644
 - Powershell 7.2.7
